@@ -240,7 +240,7 @@ p#grace-price {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.2);
     border: none;
 }
 
@@ -250,7 +250,7 @@ p#grace-price {
     justify-content: center;
     flex-direction: column;
     padding-top: 48px;
-
+    margin: auto;
 }
 
 .lightbox_image {
@@ -258,7 +258,7 @@ p#grace-price {
 }
 
 .lightbox_image > img {
-    width: 500px;
+    width: 100%;
     height: 500px;
     border-radius: 20px; 
     position: relative; 
@@ -267,7 +267,7 @@ p#grace-price {
 
 .icon_preview > img {
     position: absolute;
-    left: 34.5%;
+    left: 32%;
     top: 36%;
     transform: translate(-50%, -50%);
     padding: 10px 12px;
@@ -284,7 +284,7 @@ p#grace-price {
 
 .icon_next > img {
     position: absolute;
-    right: 32%;
+    right: 29%;
     top: 36%;
     transform: translate(-50%, -50%);
     padding: 10px 12px;
@@ -329,9 +329,13 @@ p#grace-price {
         opacity: 0.5;
     }
 
-    &:active { 
-        opacity: 0.5;
-        border: 2px solid var(--orange);
-    }
 }
     
+.active, .active2 {
+    opacity: 0.5;
+    border: 2px solid var(--orange);
+}
+
+dialog:-internal-dialog-in-top-layer::backdrop{
+    background-color: rgba(0, 0, 0, 0.8);
+}

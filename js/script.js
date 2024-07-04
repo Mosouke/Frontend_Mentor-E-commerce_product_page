@@ -34,8 +34,9 @@ function init() {
         event.preventDefault();
         lightboxOpen();
     });
+    
 }
-
+implementHtml();
 /**
  * Generates and displays the lightbox with the current image and thumbnails.
  */
@@ -61,9 +62,9 @@ function lightbox() {
                 <div class="icon_next" id="icon-next">
                     <img src="images/icon-next.svg" alt="icon next">
                 </div>
-                <div class="thumbnails_container">
+                <figure class="thumbnails_container">
                     ${thumbnailsHTML}
-                </div>
+                </figure>
             </div>
         </dialog>
     `;
@@ -105,6 +106,8 @@ function lightboxClose(event) {
     if (lightbox) {
         lightbox.close();
         lightbox.parentNode.removeChild(lightbox);
+        // Remove the ID from the body when the lightbox is closed
+        document.body.removeAttribute('id');
     }
 }
 
@@ -129,6 +132,7 @@ function showNextImage() {
  */
 function updateLightboxImage() {
     const lightboxImage = document.querySelector('.lightbox_image img');
+    
     if (lightboxImage) {
         lightboxImage.src = tableauImage[currentImageIndex];
     }
@@ -137,5 +141,107 @@ function updateLightboxImage() {
         thumb.classList.toggle('active', index === currentImageIndex);
     });
 }
+
+/**
+ * Implements additional HTML elements for thumbnails and main image.
+ */
+function implementHtml() {
+    const thumbnailsInplementHTML = tableauImageThumbnail.map((thumb, index) => `
+        <img src="${thumb}" alt="product thumbnail" class="thumbnail2 ${index === currentImageIndex ? 'active2' : ''}" data-index="${index}">
+    `).join('');
+
+    const imageInplementHTML = `
+        <div>
+            <a href="#" id="lightbox-image">
+               <img src="${tableauImage[currentImageIndex]}" alt="product image">
+            </a>
+            <div id="thumbnails">
+                <figure class="thumbnails_container">
+                ${thumbnailsInplementHTML}
+                </figure>
+            </div>
+        </div>
+    `;
+
+    document.querySelector('main').insertAdjacentHTML('afterbegin', imageInplementHTML);
+
+    const thumbnails = document.querySelectorAll('.thumbnail2');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', (event) => {
+            currentImageIndex = parseInt(event.target.getAttribute('data-index'), 10);
+            updateHtmlImage();
+        });
+    });
+}
+
+/**
+ * Updates the image and thumbnails in the implemented HTML to reflect the current image index.
+ */
+function updateHtmlImage() {
+    const lightbox_image = document.querySelector('#lightbox-image  img');
+
+    if (lightbox_image) {
+        lightbox_image.src = tableauImage[currentImageIndex];
+    }
+
+    document.querySelectorAll('.thumbnail2').forEach((thumb, index) => {
+        thumb.classList.toggle('active2', index === currentImageIndex);
+    });
+}
+
+/**
+ * Initializes the quantity input and its increment/decrement buttons.
+ * This function sets up event listeners for the buttons to increase or decrease
+ * the quantity value. It also updates the visibility of the decrement button
+ * based on the current quantity value.
+ */
+function updateQuantity() {
+    const quantityInput = document.querySelector('#quantity');
+    const quantityDown = document.querySelector('#minus');
+    const quantityUp = document.querySelector('#plus');
+
+    /**
+     * Event handler for the decrement button click event.
+     * Decreases the quantity value by 1 if it is greater than 1.
+     */
+    quantityDown.addEventListener('click', () => {
+        let currentValue = parseInt(quantityInput.value, 10);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+        updateButtonVisibility();
+    });
+
+    /**
+     * Event handler for the increment button click event.
+     * Increases the quantity value by 1.
+     */
+    quantityUp.addEventListener('click', () => {
+        let currentValue = parseInt(quantityInput.value, 10);
+        quantityInput.value = currentValue + 1;
+        updateButtonVisibility();
+    });
+
+    /**
+     * Updates the visibility of the decrement button based on the current quantity value.
+     * If the quantity is greater than 1, the decrement button is enabled.
+     * If the quantity is 1 or less, the decrement button is disabled.
+     */
+    function updateButtonVisibility() {
+        let currentValue = parseInt(quantityInput.value, 10);
+        if (currentValue > 1) {
+            quantityDown.ariaDisabled = false;
+        } else {
+            quantityDown.ariaDisabled = true;
+        }
+    }
+
+    // Initial call to set the visibility correctly
+    updateButtonVisibility();
+}
+
+// Call the function to initialize the event listeners
+updateQuantity();
 
 init();

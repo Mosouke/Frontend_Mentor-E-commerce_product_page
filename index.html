@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!-- Assure le bon encodage des caractères spéciaux -->
+  
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./css/style.css">
-  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="./css/style.css"> <!-- Assurez-vous que le chemin vers le fichier CSS est correct -->
 
-  
-  
+  <title>Frontend Mentor | E-commerce product page</title>
 </head>
 <body>
   <header class="container1440">
@@ -33,25 +32,6 @@
   </header>
   <main class="container1440">
     <div>
-      <a href="#" id="lightbox-image">
-        <img src="./images/image-product-1.jpg" alt="product">
-      </a>
-      <div id="thumbnails">
-        <figure>
-          <img src="./images/image-product-1-thumbnail.jpg" alt="product" data-index="0">
-        </figure>
-        <figure>
-          <img src="./images/image-product-2-thumbnail.jpg" alt="product" data-index="1">
-        </figure>
-        <figure>
-          <img src="./images/image-product-3-thumbnail.jpg" alt="product" data-index="2">
-        </figure>
-        <figure>
-          <img src="./images/image-product-4-thumbnail.jpg" alt="product" data-index="3">
-        </figure>
-      </div>
-    </div>
-    <div>
       <h1>sneakers Company</h1>
       <h2>Fall Limited Edition Sneakers</h2>
       <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
@@ -59,9 +39,9 @@
       <p id="none-price">$250.00</p>
       <div id="quantity-container">
         <div>
-          <img src="./images/icon-minus.svg" alt="minus">
-        <input type="text" name="number" id="quantity" value="0">
-        <img src="./images/icon-plus.svg" alt="plus">
+          <img id="minus" src="./images/icon-minus.svg" alt="minus">
+          <input type="text" name="number" id="quantity" value="1">
+          <img id="plus" src="./images/icon-plus.svg" alt="plus">
         </div>
         <button><span><img src="./images/icon-cart.svg"></span>Add to cart</button>
       </div> 
