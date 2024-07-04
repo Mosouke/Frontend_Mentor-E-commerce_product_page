@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  
+  
+</head>
+<body>
+  <header class="container1440">
+    <div>
+      <a href="/"><img src="./images/logo.svg" alt="logo"></a>
+      <nav>
+        <ul>
+          <li><a href="#" class="btn">Collections</a></li>
+          <li><a href="#" class="btn">Men</a></li>
+          <li><a href="#" class="btn">Women</a></li>
+          <li><a href="#" class="btn">About</a></li>
+          <li><a href="#" class="btn">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart">
+        <a href="#"><img src="./images/icon-cart.svg" alt="cart"></a>
+        <a href="#"><img id="wishlist" src="./images/image-avatar.png" alt="wishlist"></a>
+      </div>
+    </div>    
+    <hr>
+  </header>
+  <main class="container1440">
+    <div>
+      <a href="#" id="lightbox-image">
+        <img src="./images/image-product-1.jpg" alt="product">
+      </a>
+      <div id="thumbnails">
+        <figure>
+          <img src="./images/image-product-1-thumbnail.jpg" alt="product" data-index="0">
+        </figure>
+        <figure>
+          <img src="./images/image-product-2-thumbnail.jpg" alt="product" data-index="1">
+        </figure>
+        <figure>
+          <img src="./images/image-product-3-thumbnail.jpg" alt="product" data-index="2">
+        </figure>
+        <figure>
+          <img src="./images/image-product-4-thumbnail.jpg" alt="product" data-index="3">
+        </figure>
+      </div>
+    </div>
+    <div>
+      <h1>sneakers Company</h1>
+      <h2>Fall Limited Edition Sneakers</h2>
+      <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+      <p id="grace-price">$125.00  <span id="percentage">50%</span></p>
+      <p id="none-price">$250.00</p>
+      <div id="quantity-container">
+        <div>
+          <img src="./images/icon-minus.svg" alt="minus">
+        <input type="text" name="number" id="quantity" value="0">
+        <img src="./images/icon-plus.svg" alt="plus">
+        </div>
+        <button><span><img src="./images/icon-cart.svg"></span>Add to cart</button>
+      </div> 
+    </div>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Mosouke">Niko</a>.
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+</html>
