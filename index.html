@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!-- Assure le bon encodage des caractères spéciaux -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./css/style.css"> <!-- Assurez-vous que le chemin vers le fichier CSS est correct -->
+  <link rel="stylesheet" href="./css/style.css">
 
   <title>Frontend Mentor | E-commerce product page</title>
 </head>
@@ -24,7 +24,7 @@
         </ul>
       </nav>
       <div class="cart">
-        <a href="#"><img src="./images/icon-cart.svg" alt="cart"></a>
+        <a id="cart" href="#"><img src="./images/icon-cart.svg" alt="cart"></a>
         <a href="#"><img id="wishlist" src="./images/image-avatar.png" alt="wishlist"></a>
       </div>
     </div>    
@@ -35,7 +35,11 @@
       <h1>sneakers Company</h1>
       <h2>Fall Limited Edition Sneakers</h2>
       <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-      <p id="grace-price">$125.00  <span id="percentage">50%</span></p>
+      <div id="price-container">
+        <span>$</span>
+        <p id="grace-price">125.00</p>
+        <p id="percentage">50%</p>
+      </div>
       <p id="none-price">$250.00</p>
       <div id="quantity-container">
         <div>
@@ -43,7 +47,7 @@
           <input type="text" name="number" id="quantity" value="1">
           <img id="plus" src="./images/icon-plus.svg" alt="plus">
         </div>
-        <button><span><img src="./images/icon-cart.svg"></span>Add to cart</button>
+        <button id ="add-to-cart-button" type="submit"><span><img src="./images/icon-cart.svg"></span>Add to cart</button>
       </div> 
     </div>
   </main>
